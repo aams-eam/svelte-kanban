@@ -74,6 +74,7 @@ Full list of props/bindable variables for this component:
 
 | name              | detail                                                             | description                                                                                                                                           |
 | ----------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `columnSaveTitle`    | `{ position:number, title:string }`                                 | Triggers when a column title is changed.                                                                                                                    |
 | `columnRemove`    | `{ position:number, name:string }`                                 | Triggers when a column is removed.                                                                                                                    |
 | `columnAdd`       | `{ position: number }`                                             | Triggers when a column is added.                                                                                                                      |
 | `columnMoved`     | `{ old_pos:number, new_pos:number }`                               | Triggers when a column is moved.                                                                                                                      |

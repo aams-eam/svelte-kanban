@@ -44,7 +44,7 @@
         const new_title = document.getElementById(input_id).value;
         $columns[index_col].title = new_title;
         bool_show_options = true;
-        dispatch('columnSaveTitle', {title:new_title})
+        dispatch('columnSaveTitle', {title:new_title, position:index_col,})
     }
 
 </script>
