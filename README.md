@@ -50,7 +50,7 @@ Full list of props/bindable variables for this component:
 | name             | default                                                    | description                                                                                                                                                                                    |
 | :--------------- | :--------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `lang`        | 'en'                                              | String to specify the language of the kanban, only french and english supported atm (`en`/`fr`). |
-| `colsList`   | `['Todo','Done']`                                                     | Array of string to define the default columns.|
+| `colsList`   | `[{name: "Todo"}, {name: "Algo"}]`                                                     | Array of objects to define the default columns.|
 | `catsList`      | `[{'new',color:'white', bgColor:"#0A99FF"},{label:'important',color:'white',bgColor:"#EA0B38"},{label:'task',color:'black',bgColor:"#00F5DC"},{label:'personal',color:'white',bgColor:"#629387"},{label:'work',color:'black',bgColor:"#13F644"}]` | Array of objects `(label:string, color:string, bgColor:string)`defining the categories available for the cards.|
 | `maxColumns` (unavailable yet)  | `5` | Max number of columns the user can display on the kanban.|
 | `minimalist`   (unavailable yet)| `false` | Boolean, if set to true, the card will be minimalist version with only a title and a delete button.|
