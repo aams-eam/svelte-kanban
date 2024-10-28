@@ -38,3 +38,19 @@ Lang.fr = {
 	work: 'travail',
 	important: 'important'
 };
+Lang.es = {
+	Yes: 'Si',
+	No: 'No',
+	Done: 'Finalizado',
+	Todo: 'Por hacer',
+	Card: 'Tarjeta',
+	Cards: 'Tarjetas',
+	AddACard: 'Añadir tarjeta',
+	NewCard: 'Nueva tarjeta',
+	NewColumn: 'Nueva columna',
+	new: 'Nuevo',
+	task: 'Tarea',
+	personal: 'Personal',
+	work: 'Trabajo',
+	important: 'Importante'
+};
