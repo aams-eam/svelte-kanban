@@ -363,7 +363,7 @@
 					on:addCard={(e) => {addCard(e.detail.index)}}
 					on:cardPropSaved={(e) => {dispatch('cardPropSaved', {prop:e.detail.prop, col:e.detail.col, card:e.detail.card, value:e.detail.value, columns:$columns})}}
 					on:cardPropModify
-					on:cardRemove={()=>{dispatch('cardRemove', {columns:$columns})}}
+					on:cardRemove={(e)=>{dispatch('cardRemove', {col: e.detail.id_col, position: e.detail.id, columns:$columns})}}
 					on:moveCardUp={moveCardUp}
 					on:moveCardDown={moveCardDown}
 					on:moveColumn={moveColumn}	

@@ -9,7 +9,7 @@
 		const column_temp = $columns[id_col];
 		column_temp.slots.splice(id, 1);
 		$columns[id_col].slots = [... column_temp.slots];
-        dispatch('cardRemove', {});  
+        dispatch('cardRemove', {id_col: id_col, id: id});  
     }
 
     function modifyProp(prop:string){
