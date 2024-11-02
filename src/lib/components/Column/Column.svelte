@@ -88,6 +88,7 @@
                             {catsList}
                             on:mousedown="{(e) => {handleMouseDown(e, index)}}"
 
+							dbId={slot.dbId}
                             title={slot.title}
                             description={slot.description}
                             category={slot.category}

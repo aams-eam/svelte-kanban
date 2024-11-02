@@ -43,6 +43,7 @@
 
     export let id:number;
     export let id_col:number;
+    export let dbId;
     export let title = $globalLang.getStr('NewCard');
     // export let description = 'empty';
     export let category = {label:'default', bgColor:'gray', color:'white'};
@@ -94,18 +95,12 @@
         </div>
     </div>
     <div class="card-part" style="justify-content:center;">
-        <button on:click={()=>{modifyProp('title')}} id="modify-title-{id}-col-{id_col}" class="button-title">{title}</button>
-        <input on:keypress={(e)=> {handleKeyUp(e, 'title')}} id="input-title-{id}-col-{id_col}" value={title} type="text" style="display:none;" class="input-title">
-        <button on:click={()=>{saveProp('title')}} id="save-title-{id}-col-{id_col}" style="display:none;right:1rem; top:0.25rem;" class="save-button" >
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi" width="15" height="15" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M15 9H5V5h10m-3 14a3 3 0 0 1-3-3a3 3 0 0 1 3-3a3 3 0 0 1 3 3a3 3 0 0 1-3 3m5-16H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7l-4-4z" fill="currentColor"></path></svg>
-        </button>
+        <a href="/aut/orden/{dbId}" id="modify-title-{id}-col-{id_col}" class="button-title">{title}</a>
     </div>
     <div class="card-part">
-        <button on:click={()=>{modifyProp('date')}} class="button-date" id="modify-date-{id}-col-{id_col}">{date}</button>
-        <input on:keypress={(e)=> {handleKeyUp(e, 'date')}} id="input-date-{id}-col-{id_col}" value={date} type="text" style="display:none;" class="input-date">
-        <button on:click={()=>{saveProp('date')}} id="save-date-{id}-col-{id_col}" style="display:none;right:4rem;" class="save-button">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi" width="15" height="15" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M15 9H5V5h10m-3 14a3 3 0 0 1-3-3a3 3 0 0 1 3-3a3 3 0 0 1 3 3a3 3 0 0 1-3 3m5-16H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7l-4-4z" fill="currentColor"></path></svg>
-        </button>
+		<div class="text-date">
+			{date}
+		</div>
     </div>
 
     <button style="display:none; top:0rem" class="card-arrows" on:click={() => {dispatch('moveCardUp', {col:id_col, card:id})}}>
@@ -241,7 +236,7 @@
         background-color:rgb(209, 213, 219);;
     }
 
-    .button-date{
+    .text-date{
         background:transparent;
         font-size: 0.75rem;
         line-height: 1rem;

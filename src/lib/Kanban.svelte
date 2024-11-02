@@ -246,16 +246,44 @@
 		elem_dragged.style.removeProperty('left');
 	}
 
-	function addCard(col_index:number){		
+	async function addCard(col_index:number){		
+		const columns_work = [... $columns];
+		let result;
+
+		try {
+
+			const response = await fetch(`/api/kanban/cards/`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					title: $globalLang.getStr('NewCard'),
+					position: columns_work[col_index].slots.length,
+					col_position: col_index,
+				})
+			});
+
+			result = await response.json();
+
+			if (!response.ok) {
+				console.error('Error creating the card', result);
+				return
+			}
+		} catch (error) {
+			console.error('Error deleting the column', error);
+			return
+		}
+
 		const card_temp = {
  			empty: false,
 			animate: false,
+			dbId: result.id,
 			title: $globalLang.getStr('NewCard'),
 			description: $globalLang.getStr('new'),
 			category: catsList[0],
-			date: new Date().toLocaleString().replace(/,.*/, '')
+			date: result.created,
  		};
-		const columns_work = [... $columns];
 		// columns_work[col_index].slots.unshift(card_temp);
 		columns_work[col_index].slots.push(card_temp);
 		$columns = [... columns_work];
