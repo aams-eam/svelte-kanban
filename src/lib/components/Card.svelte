@@ -9,7 +9,7 @@
 		const column_temp = $columns[id_col];
 		column_temp.slots.splice(id, 1);
 		$columns[id_col].slots = [... column_temp.slots];
-        dispatch('cardRemove', {id_col: id_col, id: id});  
+        dispatch('cardRemove', {id_col: id_col, id: id, dbId: dbId});
     }
 
     function modifyProp(prop:string){
@@ -75,19 +75,19 @@
     aria-label="Card" 
     aria-roledescription="Card with infos and actions that can be dragged on the different columns" draggable=true on:mousedown>
     <div class="card-part">
-        <div style="flex:1; display:flex;justify-content:flex-start; align-items:center;">
-            <button class="card-category" style="background:{category.bgColor}; color:{category.color}" on:click={()=>{bool_show_cats_list = !bool_show_cats_list}}>{category.label}</button>
-            {#if bool_show_cats_list}
-                <div class="categories-list">
-                    {#each catsList as cat_temp, cat_index}
-                        <button class="category-button" on:click={()=>{changeCategory(cat_index)}}>
-                            <div class="category-circle" style="background-color:{cat_temp.bgColor}"></div>
-                            {cat_temp.label}
-                        </button>
-                    {/each}
-                </div>
-            {/if}
-        </div>
+        <!-- <div style="flex:1; display:flex;justify-content:flex-start; align-items:center;"> -->
+        <!--     <button class="card-category" style="background:{category.bgColor}; color:{category.color}" on:click={()=>{bool_show_cats_list = !bool_show_cats_list}}>{category.label}</button> -->
+        <!--     {#if bool_show_cats_list} -->
+        <!--         <div class="categories-list"> -->
+        <!--             {#each catsList as cat_temp, cat_index} -->
+        <!--                 <button class="category-button" on:click={()=>{changeCategory(cat_index)}}> -->
+        <!--                     <div class="category-circle" style="background-color:{cat_temp.bgColor}"></div> -->
+        <!--                     {cat_temp.label} -->
+        <!--                 </button> -->
+        <!--             {/each} -->
+        <!--         </div> -->
+        <!--     {/if} -->
+        <!-- </div> -->
         <div style="flex:1; display:flex;justify-content:flex-end; align-items:center;">
             <button on:click={removeCard} id="remove-{id}-col-{id_col}" class="card-remove" on:click="{removeCard}">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--la" width="15" height="15" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M7.219 5.781L5.78 7.22L14.563 16L5.78 24.781L7.22 26.22L16 17.437l8.781 8.782l1.438-1.438L17.437 16l8.782-8.781L24.78 5.78L16 14.563z" fill="currentColor"></path></svg>
